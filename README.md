@@ -6,7 +6,7 @@
 ## Linha 
 [Linha](/Linha.pas) é um programa, que "desenha" linhas num mapa a partir de dois pontos selecionados pelo usuario, feito para demonstrar como funciona a função `Aproximacao`, funcinonando basicamente assim: 
 
-O começo e semelhante a [Parede](/Parede.pas), primeiro gera o mapa de tamanho aleatorio com paredes nas laterais, depois inicia o pincel e os pontos em posição aleatoria, e imprime tudo isso, e começa um loop  fica recebendo a tecla digitada até que seja `R` ou `escape`, caso a tecla digitada for um das setas do teclado, o pincel se move,  Se for 1/2, a posição do 1º ou o 2º ponto e definida como a do pincel, e `enter` cria uma linha no mapa entre os dois pontos e o mapa e imprimido novamente.
+O começo e semelhante a [Parede](#parede), primeiro gera o mapa de tamanho aleatorio com paredes nas laterais, depois inicia o pincel e os pontos em posição aleatoria, e imprime tudo isso, e começa um loop  fica recebendo a tecla digitada até que seja `R` ou `escape`, caso a tecla digitada for um das setas do teclado, o pincel se move,  Se for 1/2, a posição do 1º ou o 2º ponto e definida como a do pincel, e `enter` cria uma linha no mapa entre os dois pontos e o mapa e imprimido novamente.
 
 O processo de criar a linha entre os dois pontos é ficar definindo um ponto auxiliar cada vez mais proximo do 1º ponto e mais longe do 2º ponto, e cada vez que se aproxima do 2º ponto, a cordenada onde esta localizado e definida como uma parede. 
 
