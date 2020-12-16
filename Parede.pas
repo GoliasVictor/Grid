@@ -1,4 +1,5 @@
-Program Pzim ;
+Program Parede;
+uses crt;
 const max = 64;
 Type Cordenada = record
   x:longint;
