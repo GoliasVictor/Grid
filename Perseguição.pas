@@ -57,16 +57,16 @@ end;
 
 {calculo mais legivel}
 {
-function StalkeruirEvacuar(Stalkeruidor,Alvo:Cordenada;Dis:integer):Cordenada;
+function Perseguir(Perseguidor,Alvo:Cordenada;Dis:integer):Cordenada;
 var DisPontos,movex, movey:real;
 begin
   Distancia := DistanciaPontos(alvo,Stalkeruidor);
   
-  movex:= (alvo.x - Stalkeruidor.x) / Distancia;
-  movey:= (alvo.y - Stalkeruidor.y) / Distancia;
-  Stalkeruidor.x := Stalkeruidor.x + round( Dis* movex)
-  Stalkeruidor.y := Stalkeruidor.y + round( Dis* movey)
-  StalkeruirEvacuar := Stalkeruidor;
+  movex:= (alvo.x - Perseguidor.x) / Distancia;
+  movey:= (alvo.y - Perseguidor.y) / Distancia;
+  Perseguidor.x := Perseguidor.x + round( Dis* movex)
+  Perseguidor.y := Perseguidor.y + round( Dis* movey)
+  Perseguir := Perseguidor;
 end;
 }
 
