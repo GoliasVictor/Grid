@@ -2,7 +2,7 @@ Program Pzim ;
 const max = 64;
 Type Cordenada = record
   x:longint;
-	y:longint;
+  y:longint;
 end;
 
 var Tam:byte;
@@ -21,7 +21,7 @@ begin
   CordAleatoria:= Aux;
 end;
 
-{geraÁ„o}
+{gera√ß√£o}
 Procedure GerarParedes(Tamanho:integer);
 var x,y,i:byte;
 begin
@@ -89,10 +89,9 @@ Begin
     cursoroff;
     randomize;
     GerarParedes(random(30)+10);
-    repeat 
-			Player := CordAleatoria 
-		until not grid[Player.x,Player.y]; 
-		// defina uma cordenada aleatoria para o player ate o local onde ele esta n„o seja verdadeiro
+    repeat     
+      Player := CordAleatoria 
+    until not grid[Player.x,Player.y]; // define uma cordenada aleatoria para o player ate o local onde ele esta n√£o seja verdadeiro
    
     imprimir_grid;
     repetir := false;
