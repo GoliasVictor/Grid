@@ -12,3 +12,15 @@ O começo e semelhante a [Parede](/Parede.pas), primeiro gera o mapa de tamanho 
 O processo de criar a linha entre os dois pontos é ficar definindo um ponto auxiliar cada vez mais proximo do 1º ponto e mais longe do 2º ponto, e cada vez que se aproxima do 2º ponto, a cordenada onde esta localizado e definida como uma parede. 
 
 **Exemplo:**  `P1 = (0,0)` e `P2 = (0,4)`, portanto na primeira volta `aux = (0,1)` e essa cordenada e definida uma parede, na segunda volta `aux=(0,2)` que tambem sera definida uma parede e assim em diante ate auxiliar ser igual ao 2º ponto.
+
+ [Aproximação](https://www.geogebra.org/m/f6bcprsw)
+
+### Perseguição
+O programa [Perseguição](/Perseguição.pas) e basicamente a junção das duas anteriores para criar uma especie de perseguidor que segue jogador (na verdade e o contrario, eu criei esse depois criei os outros para ficar mais simples de entender(eu acho)) por isso vou resumir e explicar so a funcionalidade do perseguidor.
+
+ O perseguidor funcona assim: toda vez que o jogador aperta uma tecla, ele se move para a cordenada a 1 bloco de dintancia que esteja mais proxima do player, e como criar uma linha reta entre os dois toda vez que for  mover e seguir nessa linha ate o player, e possivel ver isso apagando a linha que apaga o perseguidor/`stalker` (o apagador sera apagado hua hua hua hua (Se bem que ele não apaga e sim pinta de verde)):
+ ```Pascal 
+ Pintar(Stalker,green);
+ ```
+ Então sera visivel o rastro do perseguidor, e se o player ficar parado, ia fazer uma linha, se se locomover a linha vai entortando.
+ 
