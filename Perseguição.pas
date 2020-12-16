@@ -42,16 +42,17 @@ end;
 
 {Link de como e feito o calculo: https://www.geogebra.org/m/f6bcprsw}
 
-function Aproximacao(A,B:Cordenada;Qt:integer):Cordenada;
+function Aproximacao(A,B:Cordenada;x:integer):Cordenada;
 var Distancia:real;
+var P: Cordenada;
 begin
   Distancia := DistanciaPontos(A,B);
   if Distancia > 0  then 
   begin 
-  	A.x:= A.x + round( Qt * (B.x - A.x) / Distancia);
-	A.y:= A.y + round( Qt * (B.y - A.y) / Distancia);
+    P.x:= A.x + round( x * (B.x - A.x) / Distancia);
+    P.y:= A.y + round( x * (B.y - A.y) / Distancia);
   end;
-  Aproximacao := A;
+  Aproximacao := P;
 end;
 
 {calculo mais legivel}
