@@ -35,15 +35,18 @@ begin
   DistanciaPontos:= sqrt(sqr(A.x-B.x)+sqr(A.y-B.y));
 end;
 {retorna uma cordenada a qt de distancia de A, se aproximando de B}
-function Aproximacao(A,B:Cordenada;Qt:integer):Cordenada;
+function Aproximacao(A,B:Cordenada;x:integer):Cordenada;
 var Distancia:real;
+var P: Cordenada;
 begin
   Distancia := DistanciaPontos(A,B);
-  A.x:= A.x + round( Qt * (B.x - A.x) / Distancia);
-  A.y:= A.y + round( Qt * (B.y - A.y) / Distancia);
-  Aproximacao := A;
+  if Distancia > 0  then 
+  begin 
+    P.x:= A.x + round( x * (B.x - A.x) / Distancia);
+    P.y:= A.y + round( x * (B.y - A.y) / Distancia);
+  end;
+  Aproximacao := P;
 end;
-
 
 
 Procedure imprimir_grid() ;
