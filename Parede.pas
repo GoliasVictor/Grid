@@ -30,7 +30,7 @@ begin
   
   for x:= 1 to Tamanho do
   for y:= 1 to Tamanho do
-	grid[x,y] := (random(100) < 0);//30% do mapa e parede
+	grid[x,y] := (random(100) < 30);//30% do mapa e parede
 	
   for i:= 1 to Tamanho do
   begin
