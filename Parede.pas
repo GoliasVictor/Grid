@@ -88,30 +88,28 @@ Begin
     clrscr;
     cursoroff;
     randomize;
+    repetir := false;
+    
     GerarParedes(random(30)+10);
     repeat     
       Player := CordAleatoria 
     until not grid[Player.x,Player.y]; // define uma cordenada aleatoria para o player ate o local onde ele esta não seja verdadeiro
    
     imprimir_grid;
-    repetir := false;
-    
     pintar(Player,red);
+
     repeat
-		  key:= upcase(readkey);
-		  case(key) of
-		    #72,#80,#77,#75:
-		    begin
-		      pintar(Player,green);
-		      MoverPlayer(1);
-		      pintar(Player,Red);
-		    end;
-		    #27: fim := true;  //esc
-		    'R': repetir := true;
-		  end;
-      
+      key:= upcase(readkey);
+      case(key) of
+        #72,#80,#77,#75:
+        begin
+          pintar(Player,green);
+          MoverPlayer(1);
+          pintar(Player,Red);
+        end;
+        #27: fim := true;  //esc
+        'R': repetir := true;
+      end;
     until fim or repetir ;
-    
-  until not repetir;
-  
+  until not repetir; 
 end.
