@@ -6,7 +6,7 @@ end;
 
 var TamanhoGrid:byte;
 fim,repetir:boolean;
-Player:cordenada; 
+Player:cordenada;
 Stalker:Cordenada ;
 key:char;
 Grid: array[1..max, 1..max] of boolean;
@@ -14,7 +14,7 @@ Grid: array[1..max, 1..max] of boolean;
 
 
 
-{Geometria analitica} 
+{Geometria analitica}
 
 function NovaCord(x,y:longint):Cordenada;
 var aux:cordenada;
@@ -47,8 +47,8 @@ var Distancia:real;
 var P: Cordenada;
 begin
   Distancia := DistanciaPontos(A,B);
-  if Distancia > 0  then 
-  begin 
+  if Distancia > 0  then
+  begin
     P.x:= A.x + round( x * (B.x - A.x) / Distancia);
     P.y:= A.y + round( x * (B.y - A.y) / Distancia);
   end;
@@ -93,6 +93,7 @@ procedure pintar(Cord:Cordenada;color:integer);
 begin
   gotoxy(Cord.x*2-1,Cord.y);
   textbackground(color);
+  
   write('  ');
 end;
 
@@ -110,16 +111,16 @@ End;
 
 procedure Verificar();
 begin
-if ((Stalker.x = Player.x) and (Stalker.y = Player.y))
-then begin
-  pintar(Player,green);
-  Player := CordAleatoria;
-  pintar(Player,blue);
+  if ((Stalker.x = Player.x) and (Stalker.y = Player.y))
+  then begin
+    pintar(Player,green);
+    Player := CordAleatoria;
+    pintar(Player,blue);
   end;
 end;
 
 
-Procedure GerarParedes(Tamanho:integer);    
+Procedure GerarParedes(Tamanho:integer);
 var i:byte;
 begin
   for i:= 1 to Tamanho do
@@ -158,27 +159,41 @@ Begin
     
     pintar(Player,Blue);
     repeat
-    key:= upcase(readkey);
-    case(key) of
-      #72,#80,#77,#75:
-      begin
-        pintar(Player,green);
-        
-        MoverPlayeryer(1);
-        if ((Stalker.x = Player.x) and (Stalker.y = Player.y))
-        then Player := CordAleatoria;
-        pintar(Player,blue);
-        Verificar;
-        MostrarRecords;
+      // não faço a minima ideia de porque apenas um "if keypressed then key := readkey"  não funciona; 
+      if keypressed then
+      case upcase(readkey) of
+        #0:begin
+          case upcase(readkey) of
+            #72: key:= #72;
+            #80: key:= #80;
+            #77: key:= #77;
+            #75: key:= #75;
+          end;
+        end;
+        #27: fim := true;
+        'R': repetir := true;
       end;
-      #27: fim := true;  //esc
-      'R': repetir := true;
-    end;
-    pintar(Stalker,green);
-    Stalker := Aproximacao(Stalker,Player,1);
-    Verificar;
-    pintar(Stalker,Red);
-    
+      case(key) of
+        
+        #72,#80,#77,#75:
+        begin
+          pintar(Player,green);
+          
+          MoverPlayeryer(1);
+          if ((Stalker.x = Player.x) and (Stalker.y = Player.y))
+          then Player := CordAleatoria;
+          pintar(Player,blue);
+          Verificar;
+          MostrarRecords;
+        end;
+        #27: fim := true;  //esc
+        'R': repetir := true;
+      end;
+      pintar(Stalker,green);
+      Stalker := Aproximacao(Stalker,Player,1);
+      Verificar;
+      pintar(Stalker,Red);
+      delay(100); 
       
       
     until fim or repetir ;
