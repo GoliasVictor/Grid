@@ -21,7 +21,7 @@ O programa [Perseguição](/Perseguição.pas) e basicamente a junção das duas
  ```Pascal 
  Pintar(Stalker,green);
  ```
- Então sera visivel o rastro do perseguidor, e se o player ficar parado, ia fazer uma linha, se se locomover a linha vai entortando.
+ Então sera visivel o rastro do perseguidor, e se o player ficar parado, fara algo semelhante a uma linha linha(porem não vai ser perfeita porque a cordenada e arrendondada na aproximação, então acaba acaba movimento a linha se modifica um pouco).
  
  ## Aproximação
  
