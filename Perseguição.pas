@@ -47,11 +47,11 @@ var Distancia:real;
 begin
   Distancia := DistanciaPontos(A,B);
   if Distancia > 0  then 
-	begin 
-		A.x:= A.x + round( Qt * (B.x - A.x) / Distancia);
-		A.y:= A.y + round( Qt * (B.y - A.y) / Distancia);
+  begin 
+  	A.x:= A.x + round( Qt * (B.x - A.x) / Distancia);
+	A.y:= A.y + round( Qt * (B.y - A.y) / Distancia);
   end;
-	Aproximacao := A;
+  Aproximacao := A;
 end;
 
 {calculo mais legivel}
@@ -99,22 +99,22 @@ end;
 Procedure MoverPlayeryer(MaisMenos:integer);
 Begin
   case key of
-    #80: Player.y := Player.y + MaisMenos; // para cima, posição y aumenta
-    #72: Player.y := Player.y - MaisMenos;// para baixo, posição y diminue
-    #77: Player.x := Player.x + MaisMenos; // para direita, posição y aumenta
-    #75: Player.x := Player.x - MaisMenos;// para esquerda, posição x diminue
+    #80: Player.y := Player.y + MaisMenos; // para cima, posiÃ§Ã£o y aumenta
+    #72: Player.y := Player.y - MaisMenos;// para baixo, posiÃ§Ã£o y diminue
+    #77: Player.x := Player.x + MaisMenos; // para direita, posiÃ§Ã£o y aumenta
+    #75: Player.x := Player.x - MaisMenos;// para esquerda, posiÃ§Ã£o x diminue
   end;
   if grid[Player.x,Player.y] then MoverPlayeryer(-1);
 End;
 
 procedure Verificar();
 begin
-	if ((Stalker.x = Player.x) and (Stalker.y = Player.y))
-  then begin
-		pintar(Player,green);
-		Player := CordAleatoria;
-		pintar(Player,blue);
-	end;
+if ((Stalker.x = Player.x) and (Stalker.y = Player.y))
+then begin
+  pintar(Player,green);
+  Player := CordAleatoria;
+  pintar(Player,blue);
+  end;
 end;
 
 
